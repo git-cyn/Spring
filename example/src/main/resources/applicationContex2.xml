@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+
+	<!-- 拦截器对象 -->
+	<bean id="methodBeforeAdviceImpl"
+		  class="example2.MethodBeforeAdviceImpl">
+	</bean>
+
+	<!-- 配置拦截器 -->
+	<bean id="theAdvisor"
+		  class="org.springframework.aop.support.NameMatchMethodPointcutAdvisor">
+		<property name="advice">
+			<!-- 拦截器对象 -->
+			<ref local="methodBeforeAdviceImpl" />
+		</property>
+		<!-- 拦截所有的方法 -->
+		<property name="mappedName" value="*"></property>
+	</bean>
+	<!-- dao 实例 -->
+	<bean id="dao" class="example1.DaoImpl" />
+
+	<!-- service 实例 -->
+	<bean id="serviceImpl" class="example1.ServiceImpl">
+		<property name="dao">
+			<bean class="example1.DaoImpl"></bean>
+		</property>
+	</bean>
+
+	<!-- 代理类 Spring 的组件 -->
+	<bean id="service"
+		  class="org.springframework.aop.framework.ProxyFactoryBean">
+		<!-- 拦截器 -->
+		<property name="interceptorNames" value="theAdvisor"></property>
+		<!-- 被拦截的对象 -->
+		<property name="target">
+			<ref local="serviceImpl" />
+		</property>
+	</bean>
+</beans>
