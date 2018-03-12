@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="SpringiA4_SourceCode:war">
+    <output-path>$PROJECT_DIR$/SpringiA4_SourceCode/target</output-path>
+    <root id="archive" name="SpringiA4_SourceCode.war">
+      <element id="artifact" artifact-name="SpringiA4_SourceCode:war exploded" />
+    </root>
+  </artifact>
+</component>

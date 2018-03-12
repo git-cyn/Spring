@@ -8,12 +8,14 @@
         <outputRelativeToContentRoot value="true" />
         <module name="aop" />
         <module name="example" />
+        <module name="SpringiA4_SourceCode" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="1.8">
       <module name="aop" target="1.8" />
       <module name="example" target="1.8" />
       <module name="Spring" target="1.8" />
+      <module name="SpringiA4_SourceCode" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

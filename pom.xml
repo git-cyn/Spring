@@ -8,6 +8,7 @@
     <modules>
         <module>example</module>
         <module>aop</module>
+        <module>SpringiA4_SourceCode</module>
     </modules>
     <packaging>pom</packaging>
 
@@ -18,14 +19,22 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <springversion>4.2.6.RELEASE</springversion>
     </properties>
-
+    <dependencyManagement>
     <dependencies>
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>3.8.1</version>
+            <version>4.12</version>
             <scope>test</scope>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/org.mockito/mockito-core -->
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-core</artifactId>
+            <version>2.13.0</version>
+            <scope>test</scope>
+        </dependency>
+
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-context</artifactId>
@@ -73,4 +82,5 @@
             <version>${springversion}</version>
         </dependency>
     </dependencies>
+    </dependencyManagement>
 </project>
