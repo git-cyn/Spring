@@ -1,7 +1,8 @@
-import Chapter_02.autoconfig.CDPlayerConfig;
-import Chapter_02.autoconfig.CompactDisc;
+package javaconfig;
 
-import Chapter_02.autoconfig.MediaPlayer;
+import Chapter_02.javaconfig.xszp01.CDPlayerConfig;
+import Chapter_02.javaconfig.xszp01.CompactDisc;
+import Chapter_02.javaconfig.xszp01.MediaPlayer;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.contrib.java.lang.system.StandardOutputStreamLog;
@@ -10,8 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertNotNull;
 
 
 @RunWith(SpringJUnit4ClassRunner.class)
