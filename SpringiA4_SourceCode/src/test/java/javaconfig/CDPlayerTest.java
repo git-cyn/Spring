@@ -27,10 +27,6 @@ public class CDPlayerTest {
     @Autowired
     private CompactDisc cd;
 
-    @Test
-    public void cdShouldNotBeNull() {
-        assertNotNull(cd);
-    }
 
   @Test
   public void play() {
@@ -38,7 +34,7 @@ public class CDPlayerTest {
 //    assertEquals(
 //        "Playing Sgt. Pepper's Lonely Hearts Club Band by The Beatles\n",
 //        log.getLog());
-      player.play();
+      cd.play();
   }
 
 }
