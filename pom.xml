@@ -81,6 +81,18 @@
             <artifactId>spring-context-support</artifactId>
             <version>${springversion}</version>
         </dependency>
+        <!-- C3P0 Component -->
+        <dependency>
+            <groupId>com.mchange</groupId>
+            <artifactId>c3p0</artifactId>
+            <version>0.9.5.2</version>
+        </dependency>
+        <!-- MySQL Connection Driver -->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>5.1.33</version>
+        </dependency>
     </dependencies>
     </dependencyManagement>
 </project>
