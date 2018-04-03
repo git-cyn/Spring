@@ -6,10 +6,6 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
   <!--xml启用组件扫描-->
-<<<<<<< HEAD
   <context:component-scan base-package="s_02" />
-=======
-  <context:component-scan base-package="Chapter_02" />
->>>>>>> e9c206d723a10569bc7b1e1907fcce1a985f54c7
 
 </beans>
