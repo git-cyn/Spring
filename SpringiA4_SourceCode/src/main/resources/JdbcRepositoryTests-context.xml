@@ -1,11 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<<<<<<< HEAD
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+=======
        xmlns:c="http://www.springframework.org/schema/c"
        xmlns:jdbc="http://www.springframework.org/schema/jdbc"
        xmlns:context="http://www.springframework.org/schema/context"
        xsi:schemaLocation="http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-3.1.xsd
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+>>>>>>> e9c206d723a10569bc7b1e1907fcce1a985f54c7
 
     <context:property-placeholder location="classpath:jdbc.properties" />
     <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
@@ -19,11 +24,19 @@
       <property name="dataSource" ref="dataSource"></property>
   </bean>
 
+<<<<<<< HEAD
+  <bean id="jdbcSpitterRepository"  class="s_10.spittr.db.jdbc.JdbcSpitterRepository">
+      <constructor-arg name="jdbcTemplate" ref="jdbcTemplate"></constructor-arg>
+  </bean>
+
+  <bean class="s_10.spittr.db.jdbc.JdbcSpittleRepository">
+=======
   <bean id="jdbcSpitterRepository"  class="Chapter_10.spittr.db.jdbc.JdbcSpitterRepository">
       <constructor-arg name="jdbcTemplate" ref="jdbcTemplate"></constructor-arg>
   </bean>
 
   <bean class="Chapter_10.spittr.db.jdbc.JdbcSpittleRepository">
+>>>>>>> e9c206d723a10569bc7b1e1907fcce1a985f54c7
       <constructor-arg name="jdbcTemplate" ref="jdbcTemplate"></constructor-arg>
   </bean>
 

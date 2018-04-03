@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+	xmlns:c="http://www.springframework.org/schema/c" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-3.1.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd">
+
+
+	<context:component-scan base-package="s_11.hibernate4.spittr.db.hibernate4" />
+
+ 	<bean id="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+
+	<context:property-placeholder location="classpath:jdbc.properties" />
+	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+		<property name="user" value="${jdbc.user}"></property>
+		<property name="password" value="${jdbc.password}"></property>
+		<property name="jdbcUrl" value="${jdbc.url}"></property>
+		<property name="driverClass" value="${jdbc.driver}"></property>
+	</bean>
+
+ 	<bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+		<property name="dataSource" ref="dataSource"/>
+		<property name="packagesToScan" value="s_11.hibernate4.spittr.domain" />
+
+		<property name="hibernateProperties">
+			<value>
+				hibernate.dialect= ${hibernate.dialect}
+				<!--hibernate.dialect=org.hibernate.dialect.MySQL5Dialect-->
+				hibernate.show_sql=false
+				hibernate.hbm2ddl.auto=update
+				hibernate.format_sql=false
+				hibernate.cache.provider_class=org.hibernate.cache.EhCacheProvider
+				hibernate.release_mode=none
+				hibernate.connection.isolation=1
+				hibernate.cache.use_query_cache=false
+				hibernate.cache.use_second_level_cache=false
+				hibernate.jdbc.batch_size=25
+				hibernate.jdbc.fetch_size=50
+			</value>
+		</property>
+	</bean>
+
+
+
+</beans>
