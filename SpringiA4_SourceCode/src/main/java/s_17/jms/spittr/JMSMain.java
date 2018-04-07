@@ -9,7 +9,7 @@ public class JMSMain {
     ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("messaging.xml");
     JmsOperations jms = context.getBean(JmsOperations.class);
     for(int i=0; i< 10; i++) {
-    jms.convertAndSend("hello.queue", "Hello");
+      jms.convertAndSend("hello.queue2", "Hello");
     }
     context.close();
   }
