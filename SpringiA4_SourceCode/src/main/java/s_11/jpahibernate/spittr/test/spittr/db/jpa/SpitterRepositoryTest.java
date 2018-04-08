@@ -12,6 +12,7 @@ import s_11.jpahibernate.spittr.db.SpitterRepository;
 import s_11.jpahibernate.spittr.domain.Spitter;
 
 
+import javax.annotation.Resource;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
@@ -26,7 +27,8 @@ public class SpitterRepositoryTest {
 	@Test
 	@Transactional
 	public void count() {
-		spitterRepository.count();
+		System.out.println(spitterRepository.count());
+
 	}
 
 }

@@ -7,6 +7,7 @@ import org.springframework.stereotype.Repository;
 import s_11.hibernate4.spittr.db.SpitterRepository;
 import s_11.hibernate4.spittr.domain.Spitter;
 
+import javax.annotation.Resource;
 import javax.inject.Inject;
 import java.io.Serializable;
 import java.util.List;
@@ -14,12 +15,13 @@ import java.util.List;
 @Repository
 public class HibernateSpitterRepository implements SpitterRepository {
 
+    @Resource
     private SessionFactory sessionFactory;
 
-    @Inject
-    public HibernateSpitterRepository(SessionFactory sessionFactory) {
-        this.sessionFactory = sessionFactory;         //<co id="co_InjectSessionFactory"/>
-    }
+//    @Inject
+//    public HibernateSpitterRepository(SessionFactory sessionFactory) {
+//        this.sessionFactory = sessionFactory;         //<co id="co_InjectSessionFactory"/>
+//    }
 
     private Session currentSession() {
         return sessionFactory.getCurrentSession();//<co id="co_RetrieveCurrentSession"/>

@@ -1,6 +1,7 @@
 package s_11.jpahibernate.spittr.db.jpa;
 
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 import s_11.jpahibernate.spittr.db.SpitterRepository;
 import s_11.jpahibernate.spittr.domain.Spitter;
 

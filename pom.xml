@@ -9,6 +9,7 @@
         <module>example</module>
         <module>aop</module>
         <module>SpringiA4_SourceCode</module>
+        <module>SpringBoot</module>
     </modules>
     <packaging>pom</packaging>
 
@@ -118,11 +119,15 @@
             <version>${hibernate.version}</version>
         </dependency>
         <dependency>
-            <groupId>javax.persistence</groupId>
-            <artifactId>persistence-api</artifactId>
-            <version>1.0</version>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-entitymanager</artifactId>
+            <version>${hibernate.version}</version>
         </dependency>
-
+        <dependency>
+            <groupId>org.hibernate.common</groupId>
+            <artifactId>hibernate-commons-annotations</artifactId>
+            <version>4.0.5.Final</version>
+        </dependency>
 
         <!-- C3P0 Component -->
         <dependency>
