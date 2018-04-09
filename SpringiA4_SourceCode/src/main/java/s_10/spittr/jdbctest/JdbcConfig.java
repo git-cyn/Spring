@@ -1,9 +1,11 @@
 package s_10.spittr.jdbctest;
 
+import com.mchange.v2.c3p0.ComboPooledDataSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
+import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType;
 import org.springframework.transaction.PlatformTransactionManager;
@@ -19,9 +21,17 @@ public class JdbcConfig {
 
   @Bean
   public DataSource dataSource() {
-    return new EmbeddedDatabaseBuilder().setType(EmbeddedDatabaseType.H2)
-      .addScripts("classpath:schema.sql", "classpath:test-data.sql")
-      .build();
+    DriverManagerDataSource ds = new DriverManagerDataSource();
+    ds.setDriverClassName("com.mysql.jdbc.Driver");
+    ds.setUrl("jdbc:mysql://localhost:3306/test");
+    ds.setUsername("root");
+    ds.setPassword("root");
+//    ComboPooledDataSource ds = new ComboPooledDataSource();
+//    ds.setDataSourceName("com.mysql.jdbc.Driver");
+//    ds.setJdbcUrl("jdbc:mysql://localhost:3306/test");
+//    ds.setUser("root");
+//    ds.setPassword("root");
+    return ds;
   }
   
   @Bean

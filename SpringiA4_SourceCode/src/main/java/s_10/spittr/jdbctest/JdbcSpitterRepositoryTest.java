@@ -13,7 +13,7 @@ import java.util.List;
 
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration("classpath:JdbcRepositoryTests-context.xml")
+@ContextConfiguration(classes=JdbcConfig.class)
 //@ContextConfiguration(classes = JdbcConfig.class)
 public class JdbcSpitterRepositoryTest {
 
@@ -21,7 +21,6 @@ public class JdbcSpitterRepositoryTest {
   JdbcSpitterRepository spitterRepository;
 
   @Test
-  @Transactional
   public void findAll() {
     List<Spitter> spitters = spitterRepository.findAll();
     System.out.println(spitters.get(0).getEmail());
