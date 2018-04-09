@@ -1,10 +1,9 @@
 package Spring;
 
-import java.lang.reflect.Method;
+import org.springframework.aop.ThrowsAdvice;
 
 import javax.security.auth.login.AccountException;
-
-import org.springframework.aop.ThrowsAdvice;
+import java.lang.reflect.Method;
 
 public class ThrowsInterceptor implements ThrowsAdvice {
 

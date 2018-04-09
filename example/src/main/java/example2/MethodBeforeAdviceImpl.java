@@ -1,9 +1,9 @@
 package example2;
 
+import org.springframework.aop.MethodBeforeAdvice;
+
 import java.lang.reflect.Method;
 import java.util.Arrays;
-
-import org.springframework.aop.MethodBeforeAdvice;
 
 public class MethodBeforeAdviceImpl implements MethodBeforeAdvice {
 

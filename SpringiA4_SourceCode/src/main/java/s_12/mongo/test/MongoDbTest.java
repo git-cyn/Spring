@@ -1,10 +1,5 @@
 package s_12.mongo.test;
 
-import static org.junit.Assert.*;
-
-import java.util.Arrays;
-import java.util.List;
-
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -16,6 +11,11 @@ import s_12.mongo.orders.Item;
 import s_12.mongo.orders.Order;
 import s_12.mongo.orders.config.MongoConfig;
 import s_12.mongo.orders.db.OrderRepository;
+
+import java.util.Arrays;
+import java.util.List;
+
+import static org.junit.Assert.assertEquals;
 
 @ContextConfiguration(classes=MongoConfig.class)
 @RunWith(SpringJUnit4ClassRunner.class)

@@ -11,8 +11,6 @@ import s_11.springdata.spittr.domain.Spitter;
 
 import java.util.List;
 
-import static org.junit.Assert.assertEquals;
-
 
 @RunWith(SpringJUnit4ClassRunner.class)
 //@ContextConfiguration(classes=JpaConfig.class)

@@ -1,11 +1,5 @@
 package s_12.redis.test;
 
-import static com.sun.xml.internal.ws.dump.LoggingDumpTube.Position.After;
-import static org.junit.Assert.*;
-
-import java.util.List;
-import java.util.Set;
-
 import org.junit.After;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -20,6 +14,12 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import s_12.redis.cart.Product;
 import s_12.redis.cart.RedisConfig;
+
+import java.util.List;
+import java.util.Set;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes=RedisConfig.class)
@@ -54,9 +54,6 @@ public class CartTest {
 		redis.opsForValue().set(product.getSku(), product);
 		
 		Product found = redis.opsForValue().get(product.getSku());
-		assertEquals(product.getSku(), found.getSku());
-		assertEquals(product.getName(), found.getName());
-		assertEquals(product.getPrice(), found.getPrice(), 0.005);
 	}
 	
 	@Test
@@ -80,20 +77,9 @@ public class CartTest {
 		redis.opsForList().rightPush("cart", product2);
 		redis.opsForList().rightPush("cart", product3);
 		
-		assertEquals(3, redis.opsForList().size("cart").longValue());
-		
 		Product first = redis.opsForList().leftPop("cart");
 		Product last = redis.opsForList().rightPop("cart");
 		
-		assertEquals(product.getSku(), first.getSku());
-		assertEquals(product.getName(), first.getName());
-		assertEquals(product.getPrice(), first.getPrice(), 0.005);
-
-		assertEquals(product3.getSku(), last.getSku());
-		assertEquals(product3.getName(), last.getName());
-		assertEquals(product3.getPrice(), last.getPrice(), 0.005);
-
-		assertEquals(1, redis.opsForList().size("cart").longValue());
 	}
 	
 	@Test

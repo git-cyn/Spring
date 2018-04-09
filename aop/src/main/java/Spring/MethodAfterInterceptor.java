@@ -1,8 +1,8 @@
 package Spring;
 
-import java.lang.reflect.Method;
-
 import org.springframework.aop.AfterReturningAdvice;
+
+import java.lang.reflect.Method;
 
 public class MethodAfterInterceptor implements AfterReturningAdvice {
 

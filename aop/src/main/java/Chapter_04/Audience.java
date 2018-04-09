@@ -1,6 +1,5 @@
 package Chapter_04;
 
-import org.aspectj.lang.*;
 import org.aspectj.lang.annotation.*;
 
 /**

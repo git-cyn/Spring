@@ -1,11 +1,9 @@
 package s_17.jms.spittr.alerts;
 
-import java.util.Date;
-
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-
-import s_17.jms.spittr.alerts.AlertService;
 import s_17.jms.spittr.domain.Spittle;
+
+import java.util.Date;
 
 public class SpittleJmsMain {
 

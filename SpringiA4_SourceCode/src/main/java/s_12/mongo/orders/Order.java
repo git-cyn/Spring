@@ -1,11 +1,11 @@
 package s_12.mongo.orders;
 
-import java.util.Collection;
-import java.util.LinkedHashSet;
-
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
+
+import java.util.Collection;
+import java.util.LinkedHashSet;
 
 @Document
 public class Order {

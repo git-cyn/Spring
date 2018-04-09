@@ -1,12 +1,12 @@
 package s_17.amqp.spittr.message;
 
-import java.util.Date;
-
 import org.junit.Ignore;
 import org.springframework.amqp.core.AmqpTemplate;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import s_17.amqp.spittr.domain.Spittle;
+
+import java.util.Date;
 
 
 @Ignore

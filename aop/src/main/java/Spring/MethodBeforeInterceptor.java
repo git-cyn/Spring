@@ -1,8 +1,8 @@
 package Spring;
 
-import java.lang.reflect.Method;
-
 import org.springframework.aop.MethodBeforeAdvice;
+
+import java.lang.reflect.Method;
 
 public class MethodBeforeInterceptor implements MethodBeforeAdvice {
 

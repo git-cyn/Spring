@@ -1,7 +1,5 @@
 package s_17.jms.spittr.domain;
 
-import s_17.jms.spittr.domain.Spitter;
-
 import java.io.Serializable;
 import java.util.Date;
 
