@@ -1,6 +1,6 @@
 package s_11.springdata.spittr.db;
-import javax.sql.DataSource;
 
+import com.mchange.v2.c3p0.ComboPooledDataSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
@@ -10,16 +10,22 @@ import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.orm.jpa.vendor.Database;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 
+import javax.sql.DataSource;
+
 @Configuration
-@EnableJpaRepositories("s_11.springdata.spittr.db")
+
+@EnableJpaRepositories(basePackages = {"s_11.springdata.spittr.db","s_11.springdata.spittr.domain"})
 public class SpringDataJpaConfig {
   
   @Bean
   public DataSource dataSource() {
-    return new EmbeddedDatabaseBuilder()
-        .addScript("classpath:/com/habuma/spitter/db/jpa/schema.sql")
-        .addScript("classpath:/com/habuma/spitter/db/jpa/test-data.sql")
-        .build();
+    ComboPooledDataSource ds;
+    ds = new ComboPooledDataSource();
+    ds.setDataSourceName("com.mysql.jdbc.Driver");
+    ds.setJdbcUrl("jdbc:mysql://localhost:3306/test");
+    ds.setUser("root");
+    ds.setPassword("root");
+    return ds;
   }
   
   @Bean
@@ -30,9 +36,7 @@ public class SpringDataJpaConfig {
   @Bean
   public HibernateJpaVendorAdapter jpaVendorAdapter() {
     HibernateJpaVendorAdapter adapter = new HibernateJpaVendorAdapter();
-    adapter.setDatabase(Database.H2);
-    adapter.setShowSql(false);
-    adapter.setGenerateDdl(true);
+    adapter.setDatabasePlatform("org.hibernate.dialect.MySQLDialect");
     return adapter;
   }
   
@@ -40,8 +44,8 @@ public class SpringDataJpaConfig {
   public Object emf() {
     LocalContainerEntityManagerFactoryBean emf = new LocalContainerEntityManagerFactoryBean();
     emf.setDataSource(dataSource());
-    emf.setPersistenceUnitName("spitter");
     emf.setJpaVendorAdapter(jpaVendorAdapter());
+    emf.setPackagesToScan("s_11.jpahibernate.spittr");
     return emf;
   }
   

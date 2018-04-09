@@ -1,9 +1,9 @@
 package s_11.springdata.spittr.db;
 
-import java.util.List;
-
 import org.springframework.data.jpa.repository.JpaRepository;
 import s_11.springdata.spittr.domain.Spittle;
+
+import java.util.List;
 
 
 /**

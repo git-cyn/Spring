@@ -1,9 +1,6 @@
 package s_11.springdata.spittr.test;
 
-import javax.inject.Inject;
-import javax.persistence.EntityManagerFactory;
-import javax.sql.DataSource;
-
+import com.mchange.v2.c3p0.ComboPooledDataSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
@@ -18,37 +15,39 @@ import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
+import javax.inject.Inject;
+import javax.persistence.EntityManagerFactory;
+import javax.sql.DataSource;
+
 @Configuration
-@EnableJpaRepositories(basePackages="s_11.springdata.spittr.db")
+@EnableJpaRepositories(basePackages={"s_11.springdata.spittr.db","s_11.springdata.spittr.domain"})
 public class JpaConfig {
 
   @Bean
   public DataSource dataSource() {
-    EmbeddedDatabaseBuilder edb = new EmbeddedDatabaseBuilder();
-    edb.setType(EmbeddedDatabaseType.H2);
-    edb.addScript("spittr/db/jpa/schema.sql");
-    edb.addScript("spittr/db/jpa/test-data.sql");
-    EmbeddedDatabase embeddedDatabase = edb.build();
-    return embeddedDatabase;
+    ComboPooledDataSource ds;
+    ds = new ComboPooledDataSource();
+    ds.setDataSourceName("com.mysql.jdbc.Driver");
+    ds.setJdbcUrl("jdbc:mysql://localhost:3306/test");
+    ds.setUser("root");
+    ds.setPassword("root");
+    return ds;
   }
 
   @Bean
   public LocalContainerEntityManagerFactoryBean entityManagerFactory(DataSource dataSource, JpaVendorAdapter jpaVendorAdapter) {
-    LocalContainerEntityManagerFactoryBean emf = new LocalContainerEntityManagerFactoryBean();
+    LocalContainerEntityManagerFactoryBean emf;
+    emf = new LocalContainerEntityManagerFactoryBean();
     emf.setDataSource(dataSource);
-    emf.setPersistenceUnitName("spittr");
     emf.setJpaVendorAdapter(jpaVendorAdapter);
-    emf.setPackagesToScan("spittr.domain");
+    emf.setPackagesToScan("s_11.jpahibernate.spittr");
     return emf;
   }
   
   @Bean
   public JpaVendorAdapter jpaVendorAdapter() {
     HibernateJpaVendorAdapter adapter = new HibernateJpaVendorAdapter();
-    adapter.setDatabase(Database.H2);
-    adapter.setShowSql(true);
-    adapter.setGenerateDdl(false);
-    adapter.setDatabasePlatform("org.hibernate.dialect.H2Dialect");
+    adapter.setDatabasePlatform("org.hibernate.dialect.MySQLDialect");
     return adapter;
   }
   

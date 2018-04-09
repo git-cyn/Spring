@@ -2,10 +2,9 @@ package s_11.springdata.spittr.db;
 
 import s_11.springdata.spittr.domain.Spittle;
 
-import java.util.List;
-
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import java.util.List;
 
 
 

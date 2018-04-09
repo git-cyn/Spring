@@ -13,7 +13,7 @@ import javax.persistence.OneToMany;
 
 @Entity
 public class Spitter {
-  
+
   private Spitter() {}
 
   @Id
@@ -34,15 +34,15 @@ public class Spitter {
 
   @Column(name="updateByEmail")
   private boolean updateByEmail;
-  
+
   @Column(name="status")
   private String status;
-  
+
   @OneToMany(targetEntity=Spittle.class, fetch=FetchType.EAGER, mappedBy="spitter")
   private List<Spittle> spittles;
 
   public Spitter(Long id, String username, String password, String fullName,
-      String email, boolean updateByEmail) {
+                 String email, boolean updateByEmail) {
     this.id = id;
     this.username = username;
     this.password = password;
@@ -79,7 +79,7 @@ public class Spitter {
   public String getStatus() {
     return status;
   }
-  
+
   public List<Spittle> getSpittles() {
     return spittles;
   }

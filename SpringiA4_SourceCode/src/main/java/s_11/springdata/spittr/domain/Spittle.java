@@ -13,37 +13,37 @@ import javax.persistence.ManyToOne;
 @Entity
 public class Spittle {
 
-  @Id	
+  @Id
   @GeneratedValue(strategy=GenerationType.IDENTITY)
   private Long id;
-  
+
   @ManyToOne
   @JoinColumn(name="spitter")
   private Spitter spitter;
-  
+
   @Column
   private String message;
-  
+
   @Column
   private Date postedTime;
 
   private Spittle() {}
-  
+
   public Spittle(Long id, Spitter spitter, String message, Date postedTime) {
-	this.id = id;
-	this.spitter = spitter;
-	this.message = message;
-	this.postedTime = postedTime;
+    this.id = id;
+    this.spitter = spitter;
+    this.message = message;
+    this.postedTime = postedTime;
   }
-  
+
   public Long getId() {
     return this.id;
   }
-  
+
   public String getMessage() {
     return this.message;
   }
-  
+
   public Date getPostedTime() {
     return this.postedTime;
   }
