@@ -8,7 +8,6 @@ import s_11.hibernate4.spittr.db.SpitterRepository;
 import s_11.hibernate4.spittr.domain.Spitter;
 
 import javax.annotation.Resource;
-import javax.inject.Inject;
 import java.io.Serializable;
 import java.util.List;
 
