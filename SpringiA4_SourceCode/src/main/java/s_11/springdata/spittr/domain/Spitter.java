@@ -1,10 +1,13 @@
 package s_11.springdata.spittr.domain;
 
+import org.springframework.data.mongodb.core.mapping.Document;
+
 import javax.persistence.*;
 import java.util.List;
 
 
 @Entity
+@Document
 public class Spitter {
 
   private Spitter() {}
