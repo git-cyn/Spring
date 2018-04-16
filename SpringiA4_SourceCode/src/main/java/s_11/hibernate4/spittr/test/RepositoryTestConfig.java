@@ -48,6 +48,8 @@ public class RepositoryTestConfig implements TransactionManagementConfigurer {
       lsfb.setPackagesToScan("s_11.hibernate4.spittr.domain");
       Properties props = new Properties();
       props.setProperty("dialect", "org.hibernate.dialect.MySQL5Dialect");
+      props.setProperty("hibernate.show_sql", "true");
+      props.setProperty("hibernate.format_sql", "true");
       lsfb.setHibernateProperties(props);
       lsfb.afterPropertiesSet();
       SessionFactory object = lsfb.getObject();

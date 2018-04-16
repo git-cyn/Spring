@@ -36,7 +36,7 @@ public class CartTest {
 	@Autowired
 	private RedisTemplate<String, Product> redis;
 	
-	@After
+	@Test
 	public void cleanUp() {
 		redis.delete("9781617291203");
 		redis.delete("cart");
@@ -47,13 +47,19 @@ public class CartTest {
 	@Test
 	public void workingWithSimpleValues() {
 		Product product = new Product();
-		product.setSku("9781617291203");
-		product.setName("Spring in Action");
+		product.setSku("123");
+		product.setName("123456");
 		product.setPrice(39.99f);
 		
 		redis.opsForValue().set(product.getSku(), product);
-		
-		Product found = redis.opsForValue().get(product.getSku());
+
+		System.out.println(product.getName());
+	}
+
+	@Test
+	public void workingWidthSimpleValues() {
+
+		System.out.println(redis.opsForValue().get("9781"));
 	}
 	
 	@Test

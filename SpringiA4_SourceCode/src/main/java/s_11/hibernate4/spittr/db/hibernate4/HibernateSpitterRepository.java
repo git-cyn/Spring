@@ -41,7 +41,13 @@ public class HibernateSpitterRepository implements SpitterRepository {
     }
 
     public Spitter findOne(long id) {
-        return (Spitter) currentSession().get(Spitter.class, id);
+        System.out.println(111);
+        Spitter spitter =(Spitter)  currentSession().get(Spitter.class, id);
+        System.out.println("Hibernate一级缓存原因，查询语句只会显示一次");
+        Spitter spitter2 =(Spitter)  currentSession().get(Spitter.class, id);
+
+        List<Spitter> spitters =findAll();
+        return spitter;
     }
 
     public Spitter findByUsername(String username) {

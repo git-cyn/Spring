@@ -9,8 +9,8 @@ import org.springframework.transaction.annotation.Transactional;
 import s_11.hibernate4.spittr.db.SpitterRepository;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-//@ContextConfiguration("classpath:Hibernate4-context.xml")
-@ContextConfiguration(classes = RepositoryTestConfig.class)
+@ContextConfiguration("classpath:Hibernate4-context.xml")
+//@ContextConfiguration(classes = RepositoryTestConfig.class)
 public class SpitterRepositoryTest {
 
   @Autowired
@@ -20,5 +20,11 @@ public class SpitterRepositoryTest {
   @Transactional
   public void count() {
     System.out.println(spitterRepository.count()+",,,,,,,iiiiiii");
+  }
+
+  @Test
+  @Transactional
+  public void get() {
+    System.out.println(spitterRepository.findOne(1)+",,,,,,,iiiiiii");
   }
 }

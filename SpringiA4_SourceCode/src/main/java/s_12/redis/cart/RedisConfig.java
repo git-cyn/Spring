@@ -11,7 +11,9 @@ public class RedisConfig {
 
 	@Bean
 	public RedisConnectionFactory redisCF() {
-		return new JedisConnectionFactory();
+		JedisConnectionFactory factory = new JedisConnectionFactory();
+//		factory.setPassword("redis");
+		return factory;
 	}
 	
 	@Bean

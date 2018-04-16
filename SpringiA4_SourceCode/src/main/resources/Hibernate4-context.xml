@@ -28,13 +28,15 @@
 			<value>
 				hibernate.dialect= ${hibernate.dialect}
 				<!--hibernate.dialect=org.hibernate.dialect.MySQL5Dialect-->
-				hibernate.show_sql=false
+				hibernate.show_sql=true
 				hibernate.hbm2ddl.auto=update
-				hibernate.format_sql=false
+				hibernate.format_sql=true
 				hibernate.cache.provider_class=org.hibernate.cache.EhCacheProvider
 				hibernate.release_mode=none
 				hibernate.connection.isolation=1
+				<!-- hibernate 查询缓存 -->
 				hibernate.cache.use_query_cache=false
+				<!-- hibernate 二级缓存 -->
 				hibernate.cache.use_second_level_cache=false
 				hibernate.jdbc.batch_size=25
 				hibernate.jdbc.fetch_size=50
