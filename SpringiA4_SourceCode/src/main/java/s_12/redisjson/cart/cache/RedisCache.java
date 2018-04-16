@@ -1,21 +1,10 @@
-/*
- * FileName:RedisCache.java
- * Copyright(C) 2016-2019 思发路网络科技有限公司
- * All rights reserved.
- * -----------------------------------------------
- * 2017-09-20-15:30 Created
- */
 package s_12.redisjson.cart.cache;
 
 import org.apache.commons.codec.binary.Base64;
-import org.aspectj.lang.annotation.Aspect;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
-import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
-import s_12.redisjson.cart.RedisCaches;
-import s_12.redisjson.cart.RedisConfig;
 import s_12.redisjson.cart.SerializeUtil;
 
 import java.util.concurrent.TimeUnit;
